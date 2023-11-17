@@ -10,16 +10,21 @@
 
 
 <div class="text-center">
-    <h1 class="display-4">Boolean Products</h1>    
+    <h1 class="display-8">Boolean Products</h1>    
 </div>
 <h3>Products</h3>
 <hr />
-<table class="table table-striped" style="width:25%">
+<table class="table table-striped" style="width:40%">
     <tr>
 
         <th>Id</th>
         <th>Product</th>
         <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
     </tr>
 
     @foreach (KeyValuePair<int, string> item in ProductInventory.Products)
@@ -27,20 +32,22 @@
                 <tr>
                     <td>@item.Key</td>
                     <td>@item.Value</td>
+                   
+                    <td></td>
                     <td>
-                        <a href="/api/product/@item.Key" onclick="return confirm('Are you sure?')"><i class="bi bi-trash3"></i>
-
-                </a>
+                        <a href="/api/product/@item.Key" onclick="return confirm('Are you sure?')"><i class="bi bi-trash3"></i></a>
                     </td>
-                    @* <td><a href="#" onclick="(() => {
-                            var result = confirm('Delete?');
-                            if(result)
-                            {
-                                fetch('/api/product/@item.Key', { method: 'DELETE'});
-                                location.reload();
+                    <td></td>
+                    <td>
+                        <a href="/api/product/increment/@item.Key"><i class="bi bi-arrow-up-short"></i></a>
+                    </td>
+                    <td>
+                        <span>@ProductInventory.GetStockValueFromProductId(@item.Key)</span>
+                    </td>
+                    <td>
+                        <a href="/api/product/decrement/@item.Key"><i class="bi bi-arrow-down-short"></i></a>
+                    </td>
 
-                            }
-                        })();"><i class="bi bi-trash3"></i></a></td> *@
                     
                 </tr>
     }

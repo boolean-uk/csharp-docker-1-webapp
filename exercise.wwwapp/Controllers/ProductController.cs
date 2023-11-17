@@ -28,6 +28,44 @@ namespace exercise.wwwapp.Controllers
                 return Results.Problem(ex.Message);
             }
         }
+        [HttpGet("Decrement/{id}")]
+        public async Task<IResult> Decrement(int id)
+        {
+
+            try
+            {
+                return await Task.Run(() =>
+                {
+                    ProductInventory.StockDecrement(id);
+
+
+                    return Results.Redirect("/Index");
+                });
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(ex.Message);
+            }
+        }
+        [HttpGet("increment/{id}")]
+        public async Task<IResult> Increment(int id)
+        {
+
+            try
+            {
+                return await Task.Run(() =>
+                {
+                    ProductInventory.StockIncrement(id);
+
+
+                    return Results.Redirect("/Index");
+                });
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(ex.Message);
+            }
+        }
         [HttpGet("{id}")]
         public async Task<IResult> Delete(int id)
         {
