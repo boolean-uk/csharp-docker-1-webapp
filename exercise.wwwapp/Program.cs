@@ -35,7 +35,7 @@ app.UseAuthorization();
 app.MapRazorPages();
 app.MapControllers();
 
-ProductInventory.Initialize();
+ProductHelper.Initialize();
 
 
 

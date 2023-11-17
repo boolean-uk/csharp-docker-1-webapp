@@ -27,25 +27,25 @@
                 <th></th>
     </tr>
 
-    @foreach (KeyValuePair<int, string> item in ProductInventory.Products)
+    @foreach (Product item in Model.Products)
     {
                 <tr>
-                    <td>@item.Key</td>
-                    <td>@item.Value</td>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
                    
                     <td></td>
                     <td>
-                        <a href="/api/product/@item.Key" onclick="return confirm('Are you sure?')"><i class="bi bi-trash3"></i></a>
+                        <a href="/api/product/@item.Id" onclick="return confirm('Are you sure?')"><i class="bi bi-trash3"></i></a>
                     </td>
                     <td></td>
                     <td>
-                        <a href="/api/product/increment/@item.Key"><i class="bi bi-arrow-up-short"></i></a>
+                        <a href="/api/product/increment/@item.Id"><i class="bi bi-arrow-up-short"></i></a>
                     </td>
                     <td>
-                        <span>@ProductInventory.GetStockValueFromProductId(@item.Key)</span>
+                        <span>@ProductHelper.GetStockValueFromProductId(@item.Id)</span>
                     </td>
                     <td>
-                        <a href="/api/product/decrement/@item.Key"><i class="bi bi-arrow-down-short"></i></a>
+                        <a href="/api/product/decrement/@item.Id"><i class="bi bi-arrow-down-short"></i></a>
                     </td>
 
                     

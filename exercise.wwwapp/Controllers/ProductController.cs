@@ -36,7 +36,7 @@ namespace exercise.wwwapp.Controllers
             {
                 return await Task.Run(() =>
                 {
-                    ProductInventory.StockDecrement(id);
+                    ProductHelper.StockDecrement(id);
 
 
                     return Results.Redirect("/Index");
@@ -55,7 +55,7 @@ namespace exercise.wwwapp.Controllers
             {
                 return await Task.Run(() =>
                 {
-                    ProductInventory.StockIncrement(id);
+                    ProductHelper.StockIncrement(id);
 
 
                     return Results.Redirect("/Index");
@@ -74,7 +74,7 @@ namespace exercise.wwwapp.Controllers
             {
                 return await Task.Run(() =>
                 {
-                    ProductInventory.Products.Remove(id);
+                    ProductHelper.Products.Remove(id);
 
 
                     return Results.Redirect("/Index");
@@ -93,7 +93,7 @@ namespace exercise.wwwapp.Controllers
             {
                 return await Task.Run(() =>
                 {
-                    ProductInventory.Products.Add(ProductInventory.Products.Count == 0 ? 1 : ProductInventory.Products.Max(x => x.Key) + 1, model.productname);
+                    ProductHelper.Products.Add(ProductHelper.Products.Count == 0 ? 1 : ProductHelper.Products.Max(x => x.Key) + 1, model.productname);
 
 
                     return Results.Redirect("/Index");

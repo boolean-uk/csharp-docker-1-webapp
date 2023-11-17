@@ -22,6 +22,7 @@ In this exercise you will be Dockerizing a small website to manage the Boolean P
 - Update the `ProductInventory.cs` methods Create/Read/Delete as they should write to the new data store via a DbContext.  
 - Write clean code and comment with XML comments where necessary
 - Ensure the stock management works with your changes.  Moving this to be database managed is in the extension for this exercise.
+- You shouldn't need to change the Views/Pages in this exercise but feel free to amend where relevant.
 
 ## Extension
 - Migrate the stock management part of the application to the database.  Modify any relevant code in `ProductInventory.cs` e.g. GetStockValueFromProductId

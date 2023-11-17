@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace exercise.wwwapp.Data
 {
 
-    public static class ProductInventory
+    public static class ProductHelper
     {
         public static Dictionary<int, string> Products { get; set; } = new Dictionary<int, string>();
         public static Dictionary<int, int> StockCountToProductMap { get; set; } = new Dictionary<int, int>();
