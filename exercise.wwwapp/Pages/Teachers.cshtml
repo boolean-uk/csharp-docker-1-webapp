@@ -1,0 +1,63 @@
+﻿@page
+@using exercise.wwwapp.Helpers
+@using exercise.wwwapp.Models.Entities
+@model exercise.wwwapp.Pages.TeachersModel
+@inject IBooleanHelper booleanhelper
+
+<div class="row justify-content-center col-md-12">
+<div class="text-center">
+    <h1 class="display-8">Teachers Page</h1>
+</div>
+<h3>Teachers Christmas Wishlist</h3>
+<hr />
+<p>Page shows all the teachers and the merch they would love to get this christmas.</p>
+<style>
+        .card-deck {
+            margin-left: auto!important;
+            margin-right: auto!important;
+        }
+        .product{list-style:none;border:solid 1px black; width:100%;min-height:120px;}
+</style>
+
+
+<div class="card-group">
+
+        @foreach(Teacher teacher in Model.Teachers)
+        {
+            <div class="card col-md-3">
+                <div class="card-header text-center">
+                    <h3 class="text-sm-center">@teacher.Name</h3>
+                    
+                </div>
+                <div class="card-body text-center">
+                    <ul>
+
+                    @foreach(int id in teacher.ProductIds)
+                    {
+                            <li class="product">
+                                
+                                    @booleanhelper.GetProductName(id)
+                                    <br />
+                                <a href="api/Boolean/wishlist/delete/@teacher.Id/@id" onclick="return confirm('Delete @booleanhelper.GetProductName(@id) from @teacher.Name`s wishlist?')"><i class="bi bi-trash"></i></a>
+                            </li>
+                    }
+                   
+                    
+                   
+                    </ul>
+
+                </div>
+            </div>
+        }
+       
+
+
+
+
+@{
+}
+
+</div>
+
+
+</div>

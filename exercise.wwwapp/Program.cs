@@ -1,10 +1,14 @@
 using System.Linq;
 using exercise.wwwapp.Data;
+using exercise.wwwapp.Helpers;
+using exercise.wwwapp.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<IBooleanRepository, BooleanRepository>();
+builder.Services.AddScoped<IBooleanHelper, BooleanHelper>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "My Policy",
@@ -35,7 +39,8 @@ app.UseAuthorization();
 app.MapRazorPages();
 app.MapControllers();
 
-ProductHelper.Initialize();
+DataStore.Initialize();
+
 
 
 

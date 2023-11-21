@@ -1,0 +1,38 @@
+﻿@page
+@model exercise.wwwapp.Pages.WishlistModel
+
+<form id="form1" method="post" action="api/boolean/addwish"
+      enctype="application/x-www-form-urlencoded" class="form-vertical">
+
+<div class="row justify-content-center">
+    <div class="text-center">
+        <h1 class="display-8">Products</h1>
+    </div>
+    <h3>Add Product</h3>
+    <hr />
+    
+        
+        <select name="TeacherSelect" id="TeacherSelect">
+    @foreach (var item in Model.Teachers)
+    {
+
+        <option value="@item.Id" id="teacherId">
+            @item.Name
+        </option>
+    }
+</select> 
+        <select name="ProductSelect" id="ProductSelect">
+    @foreach (var item in Model.Products)
+    {
+
+        <option value="@item.Id" id="productId">
+            @item.Name
+        </option>
+    }
+</select>
+        <input type="submit" class="btn btn-success" value="Add" />
+    </div>
+</form>
+
+@{
+}

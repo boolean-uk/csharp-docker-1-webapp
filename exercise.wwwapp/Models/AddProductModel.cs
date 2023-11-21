@@ -1,6 +1,6 @@
 ﻿namespace exercise.wwwapp.Models
 {
-    public class FormModel
+    public class AddProductModel
     {
         public string productname { get; set; } = "";
     }

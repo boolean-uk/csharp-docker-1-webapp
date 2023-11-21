@@ -17,15 +17,20 @@ In this exercise you will be Dockerizing a small website to manage the Boolean P
 ## Core 
 
 - Add the exercise.wwwapp web project to a docker container
-- Create a Postgres container locally and update the appsettings.json to point to this database. Populate the database with the current products and add some more if you wish.  
-- Amend the project accordingly to work with the Postgres Db, such as installing any nuget packages needed, run migrations to populate the database etc.  
-- Ensure you update the `ProductInventory.cs` methods Create/Read/Delete as they should write to the new data store via a DbContext.   
-- Write clean code and comment with XML comments where necessary  
+- Migrate any code relating to the Product to the database
+	- Create a Postgres container locally in Docker and update the appsettings.json to point to this database.   
+	- Amend the project accordingly to work with the Postgres Db
+	- Install any nuget packages needed
+	- Run migrations to populate the database 
+	- Ensure you update the `BooleanRepository.cs` as they should write to the new data store via a DbContext.   
+	- Remove any legacy that is not used in the `DataStore.cs` 
+	- Also seed the current stock somewhere of your choosing.
 - Ensure the stock management works with your changes.  Moving this to be database managed is in the extension for this exercise.  
-- You shouldn't need to change the Views/Pages in this exercise but feel free to amend where relevant.  
+- You shouldn't need to change the Views/Pages in this exercise but feel free to amend where relevant
+- Write clean code and comment with XML comments where necessary  
+
 
 ## Extension
-- Migrate the stock management part of the application to the database.  Modify any relevant code.  
-- Remove any legacy code  
+- Migrate the Teacher part of the application to the database.  
 - Write clean code and comment with XML comments where necessary  
 
