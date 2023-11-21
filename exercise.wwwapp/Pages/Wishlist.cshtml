@@ -1,8 +1,12 @@
 ﻿@page
 @model exercise.wwwapp.Pages.WishlistModel
+<style>
+    .wishbtn{margin-top:24px;}
 
+    .teacherddl, .productddl{margin-bottom:22px;}
+</style>
 <form id="form1" method="post" action="api/boolean/addwish"
-      enctype="application/x-www-form-urlencoded" class="form-vertical">
+      enctype="application/x-www-form-urlencoded" class="form-horizontal col-md-4">
 
 <div class="row justify-content-center">
     <div class="text-center">
@@ -10,8 +14,10 @@
     </div>
     <h3>Add Product</h3>
     <hr />
-    
-        
+    <p>Add a product to a teachers christmas wishlist..</p>
+    <div class="teacherddl">
+
+        <label for="TeacherSelect">Select Teacher</label>
         <select name="TeacherSelect" id="TeacherSelect">
     @foreach (var item in Model.Teachers)
     {
@@ -20,7 +26,12 @@
             @item.Name
         </option>
     }
-</select> 
+
+</select>
+    </div>
+<div class="productddl">
+
+        <label for="ProductSelect">Select Product</label>
         <select name="ProductSelect" id="ProductSelect">
     @foreach (var item in Model.Products)
     {
@@ -29,8 +40,9 @@
             @item.Name
         </option>
     }
-</select>
-        <input type="submit" class="btn btn-success" value="Add" />
+        </select>     
+</div>
+        <input type="submit" class="btn btn-success wishbtn" value="Add to Wishlist" />
     </div>
 </form>
 

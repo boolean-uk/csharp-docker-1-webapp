@@ -46,7 +46,7 @@ namespace exercise.wwwapp.Controllers
                     _repository.StockDecrement(id);
 
 
-                    return Results.Redirect("/Index");
+                    return Results.LocalRedirect("/Index");
                 });
             }
             catch (Exception ex)
